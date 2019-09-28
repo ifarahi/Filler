@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/22 09:56:12 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/22 10:34:17 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 22:52:41 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 22:52:43 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	new->next = (*alst);
-	(*alst) = new;
+	new->next = *alst;
+	*alst = new;
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memccpy.c                                          :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/08 10:22:47 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/08 16:12:41 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 22:54:30 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 22:54:32 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,23 @@
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	size_t			i;
-	unsigned char	*destptr;
-	unsigned char	*srcptr;
-	unsigned char	ctochar;
+	const unsigned char	*s;
+	unsigned char		*d;
+	size_t				i;
 
+	s = src;
+	d = dest;
 	i = 0;
-	destptr = (unsigned char *)dest;
-	srcptr = (unsigned char *)src;
-	ctochar = c;
 	while (i < n)
 	{
-		destptr[i] = srcptr[i];
-		if (destptr[i] == ctochar)
-			return ((void *)(destptr + i + 1));
-		i++;
+		*d = *s;
+		if (*s == (unsigned char)c)
+		{
+			return (d + 1);
+		}
+		s++;
+		d++;
+		++i;
 	}
-	return (NULL);
+	return (0);
 }

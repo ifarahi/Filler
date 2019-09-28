@@ -5,17 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/12 14:52:35 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/12 14:53:57 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 22:52:09 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 22:52:14 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_isprint(int c)
+int	ft_isprint(int c)
 {
-	if (c >= ' ' && c <= '~')
-		return (1);
-	else
+	if (c < 32 || c > 126)
 		return (0);
+	else
+		return (1);
 }

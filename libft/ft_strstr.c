@@ -5,32 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/12 15:22:50 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/12 16:01:09 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 23:06:04 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 23:06:06 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strstr(const char *dest, const char *find)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	int		i;
-	int		in;
+	int	nlen;
+	int hlen;
 
-	i = 0;
-	if (!*find)
-		return ((char*)dest);
-	while (dest[i] != '\0')
+	nlen = ft_strlen(needle);
+	hlen = ft_strlen(haystack);
+	if (!nlen)
+		return ((char *)haystack);
+	while (hlen >= nlen)
 	{
-		if (dest[i] == find[0])
-		{
-			in = 1;
-			while (find[in] != '\0' && dest[i + in] == find[in])
-				in++;
-			if (find[in] == '\0')
-				return ((char *)dest + i);
-		}
-		i++;
+		if (!ft_strncmp(haystack, needle, nlen))
+			return (char *)(haystack);
+		haystack++;
+		hlen--;
 	}
 	return (NULL);
 }

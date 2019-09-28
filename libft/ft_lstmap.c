@@ -5,30 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/22 14:58:05 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/22 18:02:05 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 22:53:41 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 22:53:43 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f) (t_list *elem))
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list	*new;
-	t_list	*head;
+	t_list *mapped;
+	t_list *temp;
 
-	if (!(new = (t_list*)malloc(sizeof(t_list))))
+	if (!(temp = ft_lstnew(f(lst)->content, f(lst)->content_size)))
 		return (NULL);
-	new = f(lst);
-	head = new;
-	if (lst)
+	mapped = temp;
+	while (lst->next != NULL)
 	{
-		while (lst->next)
-		{
-			new->next = f(lst->next);
-			new = new->next;
-			lst = lst->next;
-		}
+		lst = lst->next;
+		temp->next = ft_lstnew(f(lst)->content, f(lst)->content_size);
+		temp = temp->next;
 	}
-	return (head);
+	return (mapped);
 }

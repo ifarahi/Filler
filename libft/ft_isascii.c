@@ -5,14 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/12 14:48:09 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/12 14:49:41 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 22:51:29 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 22:51:32 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_isascii(int c)
+int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);

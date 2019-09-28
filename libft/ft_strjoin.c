@@ -5,33 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/14 10:53:51 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/22 11:42:12 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 23:01:22 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 23:01:24 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*area;
-	size_t	size;
+	char	*str;
+	size_t	len;
 
+	str = NULL;
 	if (s1 && s2)
-		size = ft_strlen((char*)s1) + ft_strlen((char*)s2);
-	else if (s1)
-		size = ft_strlen((char*)s1);
-	else if (s2)
-		size = ft_strlen((char*)s2);
-	else
-		return (NULL);
-	if (!(area = ft_memalloc(size)))
-		return (NULL);
-	if (s1)
-		area = ft_strcpy(area, (char*)s1);
-	else
-		area = ft_strcpy(area, (char*)s2);
-	if (s1 && s2)
-		area = ft_strcat(area, (char*)s2);
-	return (area);
+	{
+		len = ft_strlen(s1) + ft_strlen(s2);
+		if (!(str = ft_strnew(len)))
+			return (NULL);
+		ft_strcpy(str, s1);
+		ft_strcat(str, (char *)s2);
+		*(str + len) = '\0';
+	}
+	return (str);
 }

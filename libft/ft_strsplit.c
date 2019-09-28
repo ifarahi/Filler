@@ -5,101 +5,91 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/17 16:39:31 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/19 10:31:52 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 23:05:51 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 23:05:53 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			word_len(char *s, int i, char c)
+static void		get_memory(char **str, const char *s, char c)
 {
+	int index;
+	int wsize;
+	int nbofwords;
+
+	index = 0;
+	nbofwords = 0;
+	while (s[index] != '\0')
+	{
+		if (s[index] != c && s[index] != '\0')
+		{
+			wsize = 0;
+			while (s[index] != c && s[index] != '\0')
+			{
+				index++;
+				wsize++;
+			}
+			str[nbofwords++] = (char *)malloc(sizeof(**str) * (wsize + 1));
+		}
+		else
+			index++;
+	}
+}
+
+static void		get_words(char **str, const char *s, char c)
+{
+	int index;
 	int j;
+	int k;
 
+	index = 0;
 	j = 0;
-	while (s[i] != c && s[i] != '\0')
+	while (s[index] != '\0')
 	{
-		j++;
-		i++;
-	}
-	return (j);
-}
-
-static int			count_word(char *s, char c)
-{
-	int		i;
-	int		j;
-	int		x;
-
-	i = 0;
-	j = 0;
-	while (s[i] != '\0')
-	{
-		x = 0;
-		while (s[i] != c && s[i] != '\0')
+		if (s[index] != c && s[index] != '\0')
 		{
-			x++;
-			i++;
+			k = 0;
+			while (s[index] != c && s[index] != '\0')
+			{
+				str[j][k] = s[index];
+				index++;
+				k++;
+			}
+			str[j][k] = '\0';
+			j++;
 		}
-		if (x > 0)
-		{
-			j += 1;
-			i = i - 1;
-		}
-		i++;
+		else
+			index++;
 	}
-	return (j);
+	str[j] = 0;
 }
 
-static int			insert(int *i, char c, char *tab, char const *s)
+char			**ft_strsplit(char const *s, char c)
 {
-	int		x;
+	char	**str;
+	int		size;
+	int		index;
 
-	x = 0;
-	while (s[*i] != c && s[*i] != '\0')
-	{
-		tab[x] = s[*i];
-		*i = *i + 1;
-		x++;
-	}
-	tab[x] = '\0';
-	return (x);
-}
-
-static void			ifs(int *i, int *j, int x)
-{
-	if (x > 0)
-	{
-		*j = *j + 1;
-		*i = *i - 1;
-	}
-}
-
-char				**ft_strsplit(char const *s, char c)
-{
-	char	**area;
-	int		i;
-	int		j;
-	int		x;
-
-	i = 0;
-	j = 0;
-	if (!(s) || !(c))
+	size = 0;
+	index = 0;
+	str = NULL;
+	if (!s)
 		return (NULL);
-	if (!(area = (char**)malloc(sizeof(char*) * (count_word((char*)s, c) + 1))))
-		return (NULL);
-	while (s[i] != '\0')
+	while (s[index] != '\0')
 	{
-		x = 0;
-		if (s[i] != c && s[i] != '\0')
+		if (s[index] != c && s[index] != '\0')
 		{
-			area[j] = (char*)malloc(sizeof(char) *
-					word_len((char*)s, i, c) + 1);
-			x = insert(&i, c, area[j], s);
+			size++;
+			while (s[index] != c && s[index] != '\0')
+				index++;
 		}
-		ifs(&i, &j, x);
-		i++;
+		else if (s[index] != '\0')
+			index++;
 	}
-	area[j] = 0;
-	return (area);
+	if (!(str = (char **)malloc(sizeof(char *) * (size + 1))))
+		return (NULL);
+	get_memory(str, s, c);
+	get_words(str, s, c);
+	return (str);
 }

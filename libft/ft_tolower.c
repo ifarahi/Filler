@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/12 15:06:59 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/12 15:10:53 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 23:06:51 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 23:06:53 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_tolower(int c)
+int	ft_tolower(int c)
 {
-	if (c >= 65 && c <= 90)
-		return (c + 32);
-	else
-		return (c);
+	if (c >= 'A' && c <= 'Z')
+	{
+		c += 32;
+	}
+	return (c);
 }

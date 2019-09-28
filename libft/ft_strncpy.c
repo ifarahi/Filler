@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/11 11:28:40 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/11 11:53:28 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 23:03:57 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 23:03:58 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	size_t		i;
+	unsigned int index;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
+	index = 0;
+	while (src[index] != '\0' && index < n)
 	{
-		dest[i] = src[i];
-		i++;
+		dest[index] = src[index];
+		++index;
 	}
-	while (i < n)
+	while (index < n)
 	{
-		dest[i] = '\0';
-		i++;
+		dest[index] = '\0';
+		index++;
 	}
 	return (dest);
 }

@@ -5,23 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/11 11:21:19 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/11 11:25:28 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 22:59:48 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 22:59:50 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 char	*ft_strcpy(char *dest, const char *src)
 {
-	int		i;
+	int index;
 
-	i = 0;
-	while (src[i] != '\0')
+	index = 0;
+	while (src[index] != '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		dest[index] = src[index];
+		index++;
 	}
-	dest[i] = '\0';
+	dest[index] = '\0';
 	return (dest);
 }

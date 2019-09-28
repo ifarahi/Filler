@@ -5,21 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/08 15:37:35 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/08 15:37:47 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 22:55:16 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 22:55:17 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char		*ptr;
-	const unsigned char	*ptr2;
+	size_t	i;
+	char	*d;
+	char	*s;
 
-	ptr = (unsigned char*)dst;
-	ptr2 = (unsigned char*)src;
-	while (n-- > 0)
-		*(ptr++) = *(ptr2++);
-	return (dst);
+	i = 0;
+	d = (char *)dest;
+	s = (char *)src;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (d);
 }

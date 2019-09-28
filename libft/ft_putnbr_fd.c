@@ -5,25 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/19 10:53:31 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/19 10:53:41 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 22:57:42 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 22:57:44 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int nb, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	nbr;
-
-	if (nb < 0)
+	if (n == -2147483648)
 	{
 		ft_putchar_fd('-', fd);
-		nbr = (unsigned int)(nb * -1);
+		ft_putchar_fd('2', fd);
+		n = (n % 1000000000) * -1;
+	}
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
 	else
-		nbr = (unsigned int)nb;
-	if (nbr >= 10)
-		ft_putnbr_fd(nbr / 10, fd);
-	ft_putchar_fd((char)(nbr % 10 + 48), fd);
+	{
+		ft_putchar_fd(n + '0', fd);
+	}
 }

@@ -5,24 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/12 17:47:42 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/22 11:40:18 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 22:58:03 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 22:58:05 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *str)
+void	ft_putstr(char const *s)
 {
-	int		i;
+	int i;
 
-	if (str)
+	i = 0;
+	while (s[i] != '\0')
 	{
-		i = 0;
-		while (str[i] != '\0')
-		{
-			ft_putchar(str[i]);
-			i++;
-		}
+		ft_putchar(s[i]);
+		i++;
 	}
 }

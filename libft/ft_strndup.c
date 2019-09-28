@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_char.c                                       :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/15 15:31:35 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/15 15:57:50 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 23:04:16 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 23:04:18 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_countchar(char const *s, char c)
+char	*ft_strndup(const char *s1, size_t n)
 {
-	int		i;
-	int		cc;
+	char *str;
 
-	cc = 0;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == c)
-			cc++;
-		i++;
-	}
-	return (cc);
+	if (!(str = ft_strnew(n)))
+		return (NULL);
+	ft_memmove(str, s1, n);
+	return (str);
 }

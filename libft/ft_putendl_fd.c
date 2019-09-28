@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/15 18:06:08 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/15 18:25:44 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 22:57:11 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 22:57:12 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putendl_fd(char const *s, int fd)
 {
-	if ((s) && (fd))
+	if (s && fd)
 	{
 		ft_putstr_fd(s, fd);
 		ft_putchar_fd('\n', fd);

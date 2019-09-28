@@ -5,24 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/13 09:50:30 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/22 14:08:33 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 23:00:56 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 23:00:58 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_striter(char *s, void (*f) (char *))
+void	ft_striter(char *s, void (*f)(char *))
 {
-	int		i;
-
-	if (s)
+	while (s && f && *s)
 	{
-		i = 0;
-		while (s[i] != '\0' && *f)
-		{
-			(*f)(s + i);
-			i++;
-		}
+		f(s);
+		s++;
 	}
 }

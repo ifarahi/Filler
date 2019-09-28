@@ -5,50 +5,61 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/19 11:34:06 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/19 11:34:17 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 22:52:26 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 22:52:28 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static int		get_nb_size(unsigned int nb)
+long long int	ft_count_digits(long long int nb)
 {
-	unsigned int	size;
+	long long int			total;
+	unsigned long long int	nbr;
 
-	size = 0;
-	while (nb >= 10)
+	total = 0;
+	if (nb < 0)
+		nb *= -1;
+	nbr = (unsigned long long int)nb;
+	while (nbr >= 10)
 	{
-		nb /= 10;
-		++size;
+		nbr /= 10;
+		total++;
 	}
-	return (size + 1);
+	total++;
+	return (total);
 }
 
-char			*ft_itoa(int nbr)
+long long int	ft_abs_l(long long int nbr)
 {
-	char			*str;
-	unsigned int	nb;
-	unsigned int	index;
-	unsigned int	size;
-
 	if (nbr < 0)
-		nb = (unsigned int)(nbr * -1);
-	else
-		nb = (unsigned int)nbr;
-	size = (unsigned int)get_nb_size(nb);
-	index = 0;
-	if (!(str = (char*)malloc(sizeof(char) * (size + 1 + (nbr < 0 ? 1 : 0)))))
-		return (0);
-	if (nbr < 0 && (str[index] = '-'))
-		size++;
-	index = size - 1;
-	while (nb >= 10)
+		return (-nbr);
+	return (nbr);
+}
+
+char			*ft_itoa(long long int n)
+{
+	char					*number;
+	int						i;
+	unsigned long long int	nbr;
+	int						digitscount;
+
+	digitscount = ft_count_digits(n);
+	if (n < 0)
+		digitscount++;
+	n = ft_abs_l(n);
+	number = (char *)malloc(sizeof(char) * (digitscount + 1));
+	if (number == NULL)
+		return (NULL);
+	number[0] = '-';
+	nbr = (unsigned long long int)n;
+	i = digitscount;
+	number[i--] = '\0';
+	while (nbr >= 10)
 	{
-		str[index--] = (char)(nb % 10 + 48);
-		nb /= 10;
+		number[i--] = '0' + (nbr % 10);
+		nbr /= 10;
 	}
-	str[index] = (char)(nb % 10 + 48);
-	str[size] = '\0';
-	return (str);
+	number[i] = '0' + nbr;
+	return (number);
 }

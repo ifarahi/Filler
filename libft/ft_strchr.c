@@ -5,25 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/12 11:21:53 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/12 11:42:54 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 22:58:51 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 22:58:52 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *s, int ch)
 {
-	int		i;
+	char c;
 
-	i = 0;
-	while (str[i] != '\0')
+	c = ch;
+	while (*s)
 	{
-		if (str[i] == (unsigned char)c)
-			return ((char*)str + i);
-		i++;
+		if (*s == c)
+			return ((char *)s);
+		s++;
 	}
-	if (c == '\0')
-		return ((char*)str + i);
+	if (c == *s)
+		return ((char *)s);
 	return (NULL);
 }

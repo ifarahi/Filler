@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/14 08:20:46 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/22 11:52:51 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 23:02:55 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 23:02:58 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,23 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+	char			*str;
 	unsigned int	i;
-	char const		*ptr_s;
-	char			*ptr_area;
-	char			*area;
+	unsigned int	len;
 
-	if (!(s) || !(area = ft_memalloc((size_t)ft_strlen((char*)s) + 1)))
-		return (NULL);
-	i = 0;
-	ptr_s = s;
-	ptr_area = area;
-	while (s[i])
+	str = NULL;
+	if (s && f)
 	{
-		ptr_area[i] = f(i, ptr_s[i]);
-		i++;
+		i = 0;
+		len = ft_strlen(s);
+		if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
+			return (NULL);
+		while (s[i])
+		{
+			str[i] = f(i, s[i]);
+			i++;
+		}
+		str[i] = '\0';
 	}
-	return (area);
+	return (str);
 }

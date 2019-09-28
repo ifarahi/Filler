@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/22 10:36:58 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/22 10:47:14 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 22:53:28 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 22:53:30 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *list, void (*f) (t_list *elem))
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	while (list)
+	while (lst)
 	{
-		f(list);
-		list = list->next;
+		f(lst);
+		lst = lst->next;
 	}
 }

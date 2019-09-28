@@ -5,27 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/22 12:01:39 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/22 12:12:52 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 23:00:38 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 23:00:41 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strequ(char const *s1, char const *s2)
+int	ft_strequ(char const *s1, char const *s2)
 {
-	unsigned int	i;
-
-	i = 0;
-	if (!s1 || !s2)
-		return ((s1 == s2) ? 1 : 0);
-	while (s1[i] && s2[i])
+	if (s1 && s2)
 	{
-		if (s1[i] != s2[i])
-			return (0);
-		i++;
+		if (ft_strcmp(s1, s2) == 0)
+			return (1);
 	}
-	if (s1[i] != s2[i])
-		return (0);
-	return (1);
+	return (0);
 }

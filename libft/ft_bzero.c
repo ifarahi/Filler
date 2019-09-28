@@ -5,14 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/07 10:07:27 by ifarahi           #+#    #+#             */
-/*   Updated: 2018/10/07 11:07:33 by ifarahi          ###   ########.fr       */
+/*   Created: 2019/09/28 22:40:22 by ifarahi           #+#    #+#             */
+/*   Updated: 2019/09/28 22:40:32 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *str, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(str, 0, n);
+	char *str;
+
+	str = (char *)s;
+	while (n > 0)
+	{
+		*str = '\0';
+		str++;
+		n--;
+	}
 }
