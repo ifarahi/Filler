@@ -89,6 +89,12 @@ typedef union	u_long_float
 	}			t_comp;
 }				t_long_float;
 
+typedef struct        s_gnl
+{
+    char            buff[BUFF_SIZE + 1];
+    int                c;
+    int                p;
+}                    t_gnl;
 
 int				get_next_line(const int fd, char **line);
 int				ft_isspace(int c);
