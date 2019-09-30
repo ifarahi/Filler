@@ -69,26 +69,66 @@ void			print_position(int res_y, int res_x)
 	ft_putchar('\n');
 }
 
+void			delete_old_piece(t_piece *piece)
+{
+	int			i;
+
+	i = 0;
+	while (i < piece->size.y)
+	{
+		free(piece->tab[i]);
+		i++;
+	}
+	ft_memdel((void **)&piece->tab);
+}
+
+void			delete_old_hitmap_table(int	**table, t_gamespace gamespace)
+{
+	int			i;
+
+	i = 0;
+	while (i < gamespace.size.y)
+	{
+		if (table[i])
+			free(table[i]);
+		i++;
+	}
+}
+
+void			delete_old_game_table(t_gamespace *gamespace)
+{
+	int			i;
+
+	i = 0;
+	while (i < gamespace->size.y)
+	{
+		if (gamespace->tab[i])
+			free(gamespace->tab[i]);
+		i++;
+	}
+	ft_memdel((void**)&gamespace->tab);
+}
+
 int				main(void)
 {
 	t_gamespace		gamespace;
 	t_piece			piece;
-	int				i;
 	int				**table;
-	int				j;
 
-	j = 0;
-	i = 0;
 	get_players_info(&gamespace);
 	while (get_game_table_size(&gamespace))
 	{
-		move_line_to_trash();
+		skip_line();
 		create_game_table(&gamespace);
 		get_piece_size(&piece);
 		create_piece_table(&piece);
 		table = represent_int_table(gamespace);
 		init_hit_map(table, gamespace);
 		search_valid_position(gamespace, piece, table);
+		delete_old_piece(&piece);
+		delete_old_hitmap_table(table, gamespace);
+		ft_memdel((void**)&table);
+		delete_old_game_table(&gamespace);
 	}
 	return (0);
 }

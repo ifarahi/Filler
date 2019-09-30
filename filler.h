@@ -49,7 +49,7 @@ typedef struct	s_gamespace
 
 void			get_players_info(t_gamespace *gamespace);
 int				get_game_table_size(t_gamespace *gamespace);
-void			move_line_to_trash(void);
+int				skip_line(void);
 void			create_game_table(t_gamespace *gamespace);
 void			get_piece_size(t_piece *piece);
 void			create_piece_table(t_piece *piece);

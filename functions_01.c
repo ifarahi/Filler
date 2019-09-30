@@ -114,18 +114,18 @@ void			init_hit_map(int **table, t_gamespace gamespace)
 	position.y = 0;
 	while (value < gamespace.size.y || value < gamespace.size.x)
 	{
+		position.y = 0;
 		while (position.y < gamespace.size.y)
 		{
+			position.x = 0;
 			while (position.x < gamespace.size.x)
 			{
 				if (table[position.y][position.x] == value)
 					flood_fill(table, position, value, gamespace);
 				position.x++;
 			}
-			position.x = 0;
 			position.y++;
 		}
-		position.y = 0;
 		value++;
 	}
 }
