@@ -6,7 +6,7 @@
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 18:14:29 by ifarahi           #+#    #+#             */
-/*   Updated: 2019/09/28 18:01:32 by ifarahi          ###   ########.fr       */
+/*   Updated: 2019/09/30 23:50:03 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,8 @@ void			flood_fill(int **tab, t_position p, int value, t_gamespace g);
 void			search_valid_position(t_gamespace g, t_piece piece, int **map);
 int				search_score(t_piece piece, int y, int x, int **map);
 void			print_position(int res_y, int res_x);
+void			delete_old_piece(t_piece *piece);
+void			delete_old_hitmap_table(int **table, t_gamespace gamespace);
+void			delete_old_game_table(t_gamespace *gamespace);
 
 #endif

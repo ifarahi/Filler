@@ -6,7 +6,7 @@
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/28 17:54:11 by ifarahi           #+#    #+#             */
-/*   Updated: 2019/09/28 17:55:18 by ifarahi          ###   ########.fr       */
+/*   Updated: 2019/09/30 21:07:37 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,46 +67,6 @@ void			print_position(int res_y, int res_x)
 	ft_putchar(' ');
 	ft_putnbr(res_x);
 	ft_putchar('\n');
-}
-
-void			delete_old_piece(t_piece *piece)
-{
-	int			i;
-
-	i = 0;
-	while (i < piece->size.y)
-	{
-		free(piece->tab[i]);
-		i++;
-	}
-	ft_memdel((void **)&piece->tab);
-}
-
-void			delete_old_hitmap_table(int	**table, t_gamespace gamespace)
-{
-	int			i;
-
-	i = 0;
-	while (i < gamespace.size.y)
-	{
-		if (table[i])
-			free(table[i]);
-		i++;
-	}
-}
-
-void			delete_old_game_table(t_gamespace *gamespace)
-{
-	int			i;
-
-	i = 0;
-	while (i < gamespace->size.y)
-	{
-		if (gamespace->tab[i])
-			free(gamespace->tab[i]);
-		i++;
-	}
-	ft_memdel((void**)&gamespace->tab);
 }
 
 int				main(void)

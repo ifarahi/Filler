@@ -6,7 +6,7 @@
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/28 18:04:58 by ifarahi           #+#    #+#             */
-/*   Updated: 2019/09/28 18:14:26 by ifarahi          ###   ########.fr       */
+/*   Updated: 2019/09/30 21:08:05 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int				get_game_table_size(t_gamespace *gamespace)
 	return (0);
 }
 
-int			skip_line(void)
+int				skip_line(void)
 {
 	char		*str;
 

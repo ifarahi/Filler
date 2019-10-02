@@ -6,7 +6,7 @@
 /*   By: ifarahi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/28 23:07:45 by ifarahi           #+#    #+#             */
-/*   Updated: 2019/09/28 23:07:59 by ifarahi          ###   ########.fr       */
+/*   Updated: 2019/09/30 21:10:21 by ifarahi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,12 @@ typedef union	u_long_float
 	}			t_comp;
 }				t_long_float;
 
-typedef struct        s_gnl
+typedef struct	s_gnl
 {
-    char            buff[BUFF_SIZE + 1];
-    int                c;
-    int                p;
-}                    t_gnl;
+	char		buff[BUFF_SIZE + 1];
+	int			c;
+	int			p;
+}				t_gnl;
 
 int				get_next_line(const int fd, char **line);
 int				ft_isspace(int c);
